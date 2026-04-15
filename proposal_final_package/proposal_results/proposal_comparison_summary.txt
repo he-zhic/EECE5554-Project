@@ -1,0 +1,11 @@
+Proposal-aligned comparison setup
+Ground Truth: Rosario v2 MINS trajectory, shown in the figure as Ground Truth.
+Wheel Odometry: /distance-based Ackermann dead reckoning.
+IMU: IMU-only v1 dead reckoning using the IMU's own orientation and acceleration, with only the initial pose aligned to Ground Truth.
+EKF Fusion (IMU + Wheel Odometry): Fully GT-Free wheel-IMU EKF using IMU heading initialization and sensor-only wheel/gyro calibration.
+For direct overlay in the proposal figures, the EKF trajectory is translated by a constant initial-position offset only; no GT heading alignment is used.
+
+Metrics versus Ground Truth
+Wheel Odometry: pos_rmse_m=90.068, final_pos_err_m=91.718, yaw_rmse_deg=72.260
+IMU: pos_rmse_m=19502.343, final_pos_err_m=44270.439, yaw_rmse_deg=94.122
+EKF Fusion (IMU + Wheel Odometry): pos_rmse_m=14.045, final_pos_err_m=7.113, yaw_rmse_deg=28.438
